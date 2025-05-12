@@ -41,7 +41,7 @@ struct Login: Reducer {
             
             return .run { [state] send in
                 try await Task.sleep(nanoseconds: 1_000_000_000)
-                let isSuccess = state.username == "user" && state.password == "password"
+                let isSuccess = state.username == "123" && state.password == "password"
                 await send(.loginResponse(isSuccess))
                 
             }
@@ -50,7 +50,6 @@ struct Login: Reducer {
             state.isLoading = false
             state.loginResult = success ? "Login Success" : "Login Failed"
             return .none
-            
             
         }
     }

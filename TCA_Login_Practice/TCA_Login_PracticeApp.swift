@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TCA_Login_PracticeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(
+                store: Store(initialState: Login.State()) {
+                    Login()
+                }
+            )
         }
-    }
-}
+    }}
