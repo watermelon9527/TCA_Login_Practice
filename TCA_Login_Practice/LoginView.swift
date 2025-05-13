@@ -35,6 +35,10 @@ struct LoginView: View {
                     Button("Login") {
                         content.send(.loginButtonTapped)
                     }
+                    Button("Clear") {
+                        content.send(.clearButtonTapped)
+                    }
+                    .foregroundColor(.red)
                 }
                 
                 // 顯示登入結果，顏色指示成功或失敗。

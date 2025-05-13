@@ -24,6 +24,8 @@ struct Login: Reducer {
         case passwordChanged(String)
         case loginButtonTapped
         case loginResponse(Bool)
+        case clearButtonTapped
+
     }
     // 4️⃣ Reducer 本體，接收 Action，更新 State，或產生副作用（Effect）
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
@@ -51,6 +53,11 @@ struct Login: Reducer {
             state.loginResult = success ? "Login Success" : "Login Failed"
             return .none
             
+        case .clearButtonTapped:
+            state.username = ""
+            state.password = ""
+            state.loginResult = nil
+            return .none
         }
     }
     
